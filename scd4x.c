@@ -68,7 +68,6 @@ void SCD4x_Read_Measurement(void)
 	HAL_I2C_Master_Transmit(&hi2c2, SCD4x_I2C_ADDR, txBuff, sizeof(txBuff), 500);
 	HAL_Delay(1);
 	HAL_I2C_Master_Receive(&hi2c2, SCD4x_I2C_ADDR, rxBuff, sizeof(rxBuff), 500);
-	HAL_Delay(1);
 
 	Measurements.CO2 = (rxBuff[0] << 8) | rxBuff[1];
 	Measurements.CO2_crc = rxBuff[2];
